@@ -1,0 +1,36 @@
+{
+  "name": "spotscore",
+  "version": "0.0.1",
+  "description": "SpotScore",
+  "author": "SpotScore <spotscore@spotscore.net>",
+  "contributors": [{
+  "name": "Lauri Liivamägi",
+  "email": "lauri@relion.info"
+}],
+  "scripts": {
+    "test": "vows --spec --isolate",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/SpotScore/spotscore.git"
+},
+  "bugs": {
+  "url": "https://github.com/SpotScore/spotscore/issues"
+},
+  "keywords": [
+  "openstreetmap",
+  "spotscore"
+],
+  "dependencies": {
+    "express": "4.13.x",
+    "mongodb": "~3.0"
+  },
+  "devDependencies": {
+    "vows": "~0.8"
+  },
+  "preferGlobal": true,
+  "private": true,
+  "license": "BSD-2-Clause"
+}
