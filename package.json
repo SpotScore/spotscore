@@ -7,8 +7,9 @@
   "name": "Lauri Liivamägi",
   "email": "lauri@relion.info"
 }],
+  "homepage": "https://spotscore.github.io/",
   "scripts": {
-    "test": "vows --spec --isolate",
+    "test": "mocha",
     "start": "node app.js"
   },
   "main": "app.js",
@@ -28,8 +29,9 @@
     "mongodb": "2.0.x"
   },
   "devDependencies": {
-    "vows": "~0.8"
+    "mocha": "2.3.x"
   },
+  "engines": { "node" : ">=4.0.0" },
   "preferGlobal": true,
   "private": true,
   "license": "BSD-2-Clause"
