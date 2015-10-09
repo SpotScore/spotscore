@@ -8,16 +8,17 @@ RUN apt-get update && apt-get install -y \
 # Update NPM
 RUN npm install npm -g
 
-# Install latest SpotScore/spotscore code from 'master'
+# Make the code directory a volume, so it could be updated from host and set it to working directory
 RUN mkdir /code
 WORKDIR /code
+VOLUME /code
+
+# Install latest SpotScore/spotscore code from 'master'
 RUN git clone https://github.com/SpotScore/spotscore.git .
 
 # Install application dependencies
 RUN npm install
 
-# Make the code directory a volume, so it could be updated from host
-VOLUME /code
 
 # Expose port 3000
 EXPOSE 3000
