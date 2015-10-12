@@ -21,6 +21,22 @@ Run containers:
   4. Images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
 
 More information:
-  * Wondering where is the mounted /code directory? Run this:  'sudo docker inspect docker_spotscore_1' (or any other given name) and look for the mounting information in section "Mounts" > "Source". You can mount another host folder by modifying docker-compose.yml for yourself.
+  * Code folder is the project root folder. Data folder is sample_data/.
 
 
+### Environment Setup for Windows (the hard way)
+
+Prerequisites:
+  * Virtualbox: https://www.virtualbox.org/wiki/Downloads 
+  * Vagrant: https://www.vagrantup.com/downloads.html 
+  * Vagrant's plugin vagrant-docker-compose: https://github.com/leighmcculloch/vagrant-docker-compose
+
+Run containers:
+  1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
+  2. Start terminal and change working directory to vagrant/ in the project folder.
+  3. Run:  'vagrant up'.
+  4. Go drink a coffee.
+  4. Vagrant box and docker images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
+
+More information:
+  * Code folder is the project root folder. Data folder is sample_data/.
