@@ -11,7 +11,6 @@ RUN npm install npm -g
 # Make the code directory a volume, so it could be updated from host and set it to working directory
 RUN mkdir /code
 WORKDIR /code
-VOLUME /code
 
 # Install latest SpotScore/spotscore code from 'master'
 RUN git clone https://github.com/SpotScore/spotscore.git .
