@@ -12,9 +12,6 @@ RUN npm install npm -g
 RUN mkdir /code
 WORKDIR /code
 
-# Install latest SpotScore/spotscore code from 'master'
-RUN git clone https://github.com/SpotScore/spotscore.git .
-
 # Install application dependencies
 RUN npm install
 
