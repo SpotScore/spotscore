@@ -12,6 +12,9 @@ RUN npm install npm -g
 RUN mkdir /code
 WORKDIR /code
 
+# Clone application repository from Github 
+RUN git clone https://github.com/SpotScore/spotscore.git .
+
 # Install application dependencies
 RUN npm install
 
