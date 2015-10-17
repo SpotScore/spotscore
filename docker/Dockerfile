@@ -3,7 +3,8 @@ FROM node:latest
 # Install needed packages
 RUN apt-get update && apt-get install -y \
   git \
-  curl
+  curl \
+  libkrb5-dev
 
 # Update NPM
 RUN npm install npm -g
