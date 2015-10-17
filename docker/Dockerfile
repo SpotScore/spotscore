@@ -23,4 +23,4 @@ RUN npm install
 EXPOSE 3000
 
 # Update code and run the app
-CMD git pull && node app.js
+CMD git pull && npm start

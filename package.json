@@ -10,7 +10,7 @@
   "homepage": "https://spotscore.github.io/",
   "scripts": {
     "test": "mocha",
-    "start": "node app.js"
+    "start": "forever -w start app.js"
   },
   "main": "app.js",
   "repository": {
@@ -26,7 +26,8 @@
 ],
   "dependencies": {
     "express": "4.13.x",
-    "mongodb": "2.0.x"
+    "mongodb": "2.0.x",
+    "forever": "0.15.x"
   },
   "devDependencies": {
     "mocha": "2.3.x"
