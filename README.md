@@ -31,6 +31,9 @@ Prerequisites:
   * Vagrant: https://www.vagrantup.com/downloads.html 
   * Vagrant's plugin vagrant-docker-compose: https://github.com/leighmcculloch/vagrant-docker-compose
 
+Optional:
+  * Vagrant plugin vagrant-vbguest: https://github.com/dotless-de/vagrant-vbguest (installs latest Vbox Guest Additions)
+
 Run containers:
   1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
   2. Start terminal and change working directory to vagrant/ in the project folder.

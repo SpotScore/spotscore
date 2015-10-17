@@ -2,8 +2,6 @@ spotscore:
   image: spotscore/spotscore
   ports:
    - "3000:3000"
-  volumes:
-   - ../:/code
   links:
    - mongodb
 mongodb:
