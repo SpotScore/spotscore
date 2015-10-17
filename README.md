@@ -44,3 +44,8 @@ Run containers:
 
 More information:
   * Code folder is the project root folder. Data folder is sample_data/.
+
+
+## Chat with us!
+
+[![Join the chat at https://gitter.im/SpotScore](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SpotScore)
