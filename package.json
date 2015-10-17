@@ -10,7 +10,7 @@
   "homepage": "https://spotscore.github.io/",
   "scripts": {
     "test": "mocha",
-    "start": "forever -w start app.js"
+    "start": "forever -w app.js"
   },
   "main": "app.js",
   "repository": {
