@@ -22,5 +22,5 @@ RUN npm install
 # Expose port 3000
 EXPOSE 3000
 
-# Run the app
-CMD ["node", "app.js"]
+# Update code and run the app
+CMD git pull && node app.js
