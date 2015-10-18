@@ -53,4 +53,4 @@ More information:
 
 ## Chat with us!
 
-[![Join the chat at https://gitter.im/SpotScore](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SpotScore)
+[![Join the chat at https://gitter.im/SpotScore/spotscore](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SpotScore/spotscore)
