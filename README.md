@@ -9,6 +9,11 @@
 
 ## Development
 
+### Docker Container Architecture
+
+[![Iteration 1 containers](https://dl.dropboxusercontent.com/u/2060778/spotscore-docker-1.svg)](https://dl.dropboxusercontent.com/u/2060778/spotscore-docker-1.svg)
+
+
 ### Environment Setup for Linux (the easy way)
 
 Prerequisites:
