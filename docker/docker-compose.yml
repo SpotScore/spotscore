@@ -3,6 +3,6 @@ spotscore:
   ports:
    - "3000:3000"
   links:
-   - mongodb
-mongodb:
-  image: mongo
+   - postgresql_1
+postgresql_1:
+  image: mdillon/postgis
