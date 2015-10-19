@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "description": "SpotScore",
   "author": "SpotScore <spotscore@spotscore.net>",
-  "contributors": [{
-  "name": "Lauri Liivamägi",
-  "email": "lauri@relion.info"
-}],
+  "contributors": [
+    {
+      "name": "Lauri Liivamägi",
+      "email": "lauri@relion.info"
+    }
+  ],
   "homepage": "https://spotscore.github.io/",
   "scripts": {
     "test": "mocha",
@@ -14,25 +16,27 @@
   },
   "main": "app.js",
   "repository": {
-  "type": "git",
-  "url": "https://github.com/SpotScore/spotscore.git"
-},
+    "type": "git",
+    "url": "https://github.com/SpotScore/spotscore.git"
+  },
   "bugs": {
-  "url": "https://github.com/SpotScore/spotscore/issues"
-},
+    "url": "https://github.com/SpotScore/spotscore/issues"
+  },
   "keywords": [
-  "openstreetmap",
-  "spotscore"
-],
+    "openstreetmap",
+    "spotscore"
+  ],
   "dependencies": {
+    "forever": "0.15.x",
     "hapi": "11.0.x",
-    "mongodb": "2.0.x",
-    "forever": "0.15.x"
+    "pg": "4.4.x"
   },
   "devDependencies": {
     "mocha": "2.3.x"
   },
-  "engines": { "node" : ">=4.0.0" },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "preferGlobal": true,
   "private": true,
   "license": "BSD-2-Clause"
