@@ -1,8 +1,14 @@
+nginx:
+  image: spotscore/nginx-proxy
+  ports:
+   - "80:80"
+  links:
+   - spotscore
 spotscore:
   image: spotscore/spotscore
   ports:
    - "3000:3000"
   links:
-   - postgresql_1
-postgresql_1:
-  image: mdillon/postgis
+   - postgis
+postgis:
+  image: spotscore/postgis
