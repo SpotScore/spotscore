@@ -11,12 +11,20 @@ spotscore:
   ports:
    - "3000:3000"
   volumes:
-    - /code
+   - /code
   links:
    - postgis
 postgis:
   image: spotscore/postgis
   ports:
-    - "5432:5432"
+   - "5432:5432"
+osm2pgsql:
+  image: spotscore/osm2pgsql
   volumes:
-    - /var/lib/postgresql/data
+    - ../sample_data:/import:ro
+  links:
+    - postgis
+  environment:
+    - PGPASS=notsecret
+  command: osm2pgsql --slim --proj EPSG:3301 -H $POSTGIS_PORT_5432_TCP_ADDR -P $DB_PORT_5432_TCP_PORT -d gis -U spotscore /import/*.osm
+
