@@ -10,9 +10,13 @@ spotscore:
   image: spotscore/spotscore
   ports:
    - "3000:3000"
+  volumes:
+    - /code
   links:
    - postgis
 postgis:
   image: spotscore/postgis
   ports:
     - "5432:5432"
+  volumes:
+    - /var/lib/postgresql/data
