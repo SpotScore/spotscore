@@ -19,13 +19,6 @@ server.route({
         }
 });
 
-server.route({
-      method: 'GET',
-      path: '/',
-      handler: function (request, reply) {
-        reply('Hello from SpotScore API!');
-        }
-});
 
 server.route({
     method: 'GET',
