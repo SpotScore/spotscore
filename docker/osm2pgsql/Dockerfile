@@ -29,4 +29,8 @@ WORKDIR /osm2pgsql
 
 RUN ./autogen.sh && ./configure && make && make install
 
+COPY ./osm2pgsql-entrypoint.sh /osm2pgsql
+
+ENTRYPOINT ["/osm2pgsql-entrypoint.sh"]
+
 CMD osm2pgsql --help
