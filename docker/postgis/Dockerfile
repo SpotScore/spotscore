@@ -1,4 +1,4 @@
-FROM kartoza/postgis:9.4-2.1
+FROM spotscore/docker-postgis
 
 # Set user and password
 ENV POSTGRES_USER="spotscore"

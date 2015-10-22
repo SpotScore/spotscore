@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:4.2
 
 # Install needed packages
 RUN apt-get update && apt-get install -y \
