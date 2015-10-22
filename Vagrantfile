@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
 
   # Provision Docker and Docker Compose. First have to install Vagrant plugin 'vagrant-docker-plugin' to enable those provisioners
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: "/docker/docker-compose.yml", run: "always"
+  config.vm.provision :docker_compose, yml: "docker-compose.yml", run: "always"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../docker", "/docker"
+  config.vm.synced_folder ".", "/spotscore"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
