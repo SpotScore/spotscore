@@ -1,4 +1,4 @@
-  nginx:
+nginx:
   image: spotscore/nginx-proxy
   ports:
    - "80:80"
