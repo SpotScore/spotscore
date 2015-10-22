@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
 
   # Provision Docker and Docker Compose. First have to install Vagrant plugin 'vagrant-docker-plugin' to enable those provisioners
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: "docker-compose.yml", run: "always"
+  config.vm.provision :docker_compose, yml: "/spotscore/docker-compose.yml", run: "always"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
