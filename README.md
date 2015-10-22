@@ -22,15 +22,12 @@ Prerequisites:
 
 Run containers:
   1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
-  2. Start terminal and change working directory to docker/ in the project folder.
+  2. Start terminal and change working directory to be the project's folder.
   3. Run:  'sudo docker-compose up'
   4. Images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
 
-More information:
-  * Code folder is the project root folder. Data folder is sample_data/.
 
-
-### Environment Setup for Windows (the hard way)
+### Environment Setup for Windows and OS X (includes additional step of drinking coffee)
 
 Prerequisites:
   * Virtualbox: https://www.virtualbox.org/wiki/Downloads 
@@ -42,13 +39,15 @@ Optional:
 
 Run containers:
   1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
-  2. Start terminal and change working directory to vagrant/ in the project folder.
+  2. Start terminal and change working directory to be the project's folder.
   3. Run:  'vagrant up'.
   4. Go drink a coffee.
   4. Vagrant box and docker images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
 
-More information:
-  * Code folder is the project root folder. Data folder is sample_data/.
+
+### Want more information?
+
+Go visit our [Wiki pages](https://github.com/SpotScore/spotscore/wiki)
 
 
 ## Chat with us!
