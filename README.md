@@ -1,5 +1,7 @@
 # SpotScore
 
+_TODO: Write a project description_
+
 ## Project health
 [![Build Status](https://travis-ci.org/SpotScore/spotscore.svg?branch=master)](https://travis-ci.org/SpotScore/spotscore)
 [![Code Climate](https://codeclimate.com/github/SpotScore/spotscore/badges/gpa.svg)](https://codeclimate.com/github/SpotScore/spotscore)
@@ -7,47 +9,33 @@
 [![Dependencies](https://david-dm.org/spotscore/spotscore.svg)](https://david-dm.org/spotscore/spotscore)
 
 
-## Development
+## Examples
 
-### Docker Container Architecture
+## Installation and Configuration
 
-[![Iteration 1 containers](https://dl.dropboxusercontent.com/u/2060778/spotscore-docker-1.svg)](https://dl.dropboxusercontent.com/u/2060778/spotscore-docker-1.svg)
+_TODO: Write administrator documentation_
 
+## API Reference
 
-### Environment Setup for Linux (the easy way)
+_TODO: Write API user documentation_
 
-Prerequisites:
-  * Docker Engine: https://docs.docker.com/installation/ubuntulinux/
-  * Docker Compose: https://docs.docker.com/compose/install/
+## Developer Documentation
 
-Run containers:
-  1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
-  2. Start terminal and change working directory to be the project's folder.
-  3. Run:  'sudo docker-compose up'
-  4. Images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
+[Developer wiki pages](https://github.com/SpotScore/spotscore/wiki#developer-help-topics)
 
+## Contrubuting
 
-### Environment Setup for Windows and OS X (includes additional step of drinking coffee)
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request
 
-Prerequisites:
-  * Virtualbox: https://www.virtualbox.org/wiki/Downloads 
-  * Vagrant: https://www.vagrantup.com/downloads.html 
-  * Vagrant's plugin vagrant-docker-compose: https://github.com/leighmcculloch/vagrant-docker-compose
+## Contributors
 
-Optional:
-  * Vagrant plugin vagrant-vbguest: https://github.com/dotless-de/vagrant-vbguest (installs latest Vbox Guest Additions)
+## License
 
-Run containers:
-  1. Git clone code from https://github.com/SpotScore/spotscore or go to your existing project
-  2. Start terminal and change working directory to be the project's folder.
-  3. Run:  'vagrant up'.
-  4. Go drink a coffee.
-  4. Vagrant box and docker images are downloaded, containers are run. Go to http://localhost:3000 with your browser and you should get a response.
-
-
-### Want more information?
-
-Go visit our [Wiki pages](https://github.com/SpotScore/spotscore/wiki)
+The BSD 2-Clause License
 
 
 ## Chat with us!
