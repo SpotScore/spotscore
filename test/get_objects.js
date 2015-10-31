@@ -1,7 +1,7 @@
 var request = require('supertest')
   , hapi = require('hapi');
 
-var app = new Hapi.Server();
+var app = new hapi.Server();
 app.connection({ port: 80});
 
 describe('GET /objects', function(){
