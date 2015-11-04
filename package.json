@@ -1,6 +1,6 @@
 {
   "name": "spotscore",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "SpotScore",
   "author": "SpotScore <spotscore@spotscore.net>",
   "contributors": [
@@ -11,7 +11,8 @@
   ],
   "homepage": "https://spotscore.github.io/",
   "scripts": {
-    "test": "mocha",
+    "migrate": "vendor/flyway/flyway migrate",
+    "test": "mocha ./test",
     "start": "forever -w app.js"
   },
   "main": "app.js",
@@ -35,9 +36,9 @@
     "mocha": "2.3.x"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.2.0"
   },
-  "preferGlobal": true,
+  "preferGlobal": false,
   "private": true,
   "license": "BSD-2-Clause"
 }
