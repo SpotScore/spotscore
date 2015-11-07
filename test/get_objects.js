@@ -1,8 +1,6 @@
 var request = require('supertest')
-  , hapi = require('hapi');
-
-var app = new hapi.Server();
-app.connection({ port: 80});
+  , hapi = require('hapi')
+  , app = request('http://localhost:3000');
 
 describe('GET /objects', function(){
   it('should return an array of objects inside the bbox"', function(done){
