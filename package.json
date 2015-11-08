@@ -1,44 +1,46 @@
 {
-    "author": "SpotScore <spotscore@spotscore.net>",
-    "bugs": {
-        "url": "https://github.com/SpotScore/spotscore/issues"
-    },
-    "contributors": [
-        {
-            "email": "lauri@relion.info",
-            "name": "Lauri Liivamägi"
-        }
-    ],
-    "dependencies": {
-        "forever": "0.15.x",
-        "hapi": "11.0.x",
-        "pg": "4.4.x"
-    },
-    "description": "SpotScore",
-    "devDependencies": {
-        "mocha": "2.3.x",
-        "supertest": "1.1.0"
-    },
-    "engines": {
-        "node": ">=4.0.0"
-    },
-    "homepage": "https://spotscore.github.io/",
-    "keywords": [
-        "openstreetmap",
-        "spotscore"
-    ],
-    "license": "BSD-2-Clause",
-    "main": "app.js",
-    "name": "spotscore",
-    "preferGlobal": true,
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/SpotScore/spotscore.git"
-    },
-    "scripts": {
-        "start": "forever -w app.js",
-        "test": "mocha"
-    },
-    "version": "0.0.1"
+  "author": "SpotScore <spotscore@spotscore.net>",
+  "bugs": {
+    "url": "https://github.com/SpotScore/spotscore/issues"
+  },
+  "contributors": [
+    {
+      "email": "lauri@relion.info",
+      "name": "Lauri Liivamägi"
+    }
+  ],
+  "dependencies": {
+    "forever": "0.15.x",
+    "good": "^6.4.0",
+    "good-console": "^5.2.0",
+    "hapi": "11.0.x",
+    "pg": "4.4.x"
+  },
+  "description": "SpotScore",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "lab": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "homepage": "https://spotscore.github.io/",
+  "keywords": [
+    "openstreetmap",
+    "spotscore"
+  ],
+  "license": "BSD-2-Clause",
+  "main": "app.js",
+  "name": "spotscore",
+  "preferGlobal": true,
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpotScore/spotscore.git"
+  },
+  "scripts": {
+    "start": "forever -w app.js",
+    "test": "lab"
+  },
+  "version": "0.0.1"
 }
