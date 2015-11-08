@@ -1,5 +1,13 @@
 {
+  "name": "spotscore",
+  "description": "SpotScore",
+  "version": "0.1.0",
   "author": "SpotScore <spotscore@spotscore.net>",
+  "homepage": "https://spotscore.github.io/",
+  "keywords": [
+    "openstreetmap",
+    "spotscore"
+  ],
   "bugs": {
     "url": "https://github.com/SpotScore/spotscore/issues"
   },
@@ -16,31 +24,24 @@
     "hapi": "11.0.x",
     "pg": "4.4.x"
   },
-  "description": "SpotScore",
   "devDependencies": {
     "chai": "^3.4.1",
     "lab": "^7.2.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.2.0"
   },
-  "homepage": "https://spotscore.github.io/",
-  "keywords": [
-    "openstreetmap",
-    "spotscore"
-  ],
-  "license": "BSD-2-Clause",
   "main": "app.js",
-  "name": "spotscore",
-  "preferGlobal": true,
+  "license": "BSD-2-Clause",
+  "preferGlobal": false,
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/SpotScore/spotscore.git"
   },
   "scripts": {
+    "migrate": "vendor/flyway/flyway migrate",
     "start": "forever -w app.js",
     "test": "lab"
-  },
-  "version": "0.0.1"
+  }
 }
