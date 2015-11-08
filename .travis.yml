@@ -1,6 +1,18 @@
 language: node_js
 node_js:
   - "stable"
+addons:
+  postgresql: "9.4"
+services:
+  - postgresql
+before_script:
+  - psql -c "create user spotscore with password 'notsecret';" -U postgres
+  - psql -c 'create database gis;' -U postgres
+  - psql -c 'GRANT ALL PRIVILEGES ON DATABASE gis to spotscore;' -U postgres
+  - psql -c 'create extension postgis;' -U postgres -d gis
+  - psql -c 'create extension postgis_topology;' -U postgres -d gis
+  - psql -c 'create extension hstore;' -U postgres -d gis 
+  - psql -f sample_data/travis_data.sql -U postgres -d gis
 notifications:
   webhooks:
     urls:
