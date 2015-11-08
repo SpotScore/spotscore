@@ -4,3 +4,4 @@
 !.gitignore
 !tartu.osm
 !tartu-copy.osm
+!travis_data.sql
