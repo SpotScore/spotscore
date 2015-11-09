@@ -22,7 +22,7 @@ _TODO: Write API user documentation_
 
 [Developer wiki pages](https://github.com/SpotScore/spotscore/wiki#developer-help-topics)
 
-## Contrubuting
+## Contributing
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

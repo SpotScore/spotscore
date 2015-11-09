@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
     "lab": "^7.2.0"
   },
   "engines": {
@@ -43,5 +44,6 @@
     "migrate": "vendor/flyway/flyway migrate",
     "start": "forever -w app.js",
     "test": "lab"
+    "coveralls": "lab -r lcov | ./node_modules/.bin/coveralls"
   }
 }

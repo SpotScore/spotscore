@@ -13,6 +13,10 @@ before_script:
   - psql -c 'create extension postgis_topology;' -U postgres -d gis
   - psql -c 'create extension hstore;' -U postgres -d gis 
   - psql -f sample_data/travis_data.sql -U postgres -d gis
+script:
+  - npm test
+after_success:
+  - npm run coveralls
 notifications:
   webhooks:
     urls:
