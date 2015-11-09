@@ -43,7 +43,7 @@
   "scripts": {
     "migrate": "vendor/flyway/flyway migrate",
     "start": "forever -w app.js",
-    "test": "lab"
+    "test": "lab",
     "coveralls": "lab -r lcov | ./node_modules/.bin/coveralls"
   }
 }
