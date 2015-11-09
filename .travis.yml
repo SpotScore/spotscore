@@ -16,7 +16,7 @@ before_script:
 script:
   - npm test
 after_success:
-  - npm run coveralls
+  - lab -r lcov | ./node_modules/.bin/coveralls
 notifications:
   webhooks:
     urls:
