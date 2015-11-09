@@ -26,6 +26,9 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
+    "eslint": "^1.9.0",
+    "js-beautify": "^1.5.10",
     "lab": "^7.2.0"
   },
   "engines": {
@@ -42,6 +45,8 @@
   "scripts": {
     "migrate": "vendor/flyway/flyway migrate",
     "start": "forever -w app.js",
-    "test": "lab"
+    "test": "lab",
+    "lint": "node node_modules/eslint/bin/eslint.js app.js; exit 0",
+    "beautify": "node node_modules/js-beautify/js/bin/js-beautify.js --config ./jsbeautifyrc -r"
   }
 }
