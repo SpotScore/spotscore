@@ -3,14 +3,30 @@ rules:
     - 1
     - 4
   quotes:
-    - 1
+    - 2
     - double
   linebreak-style:
-    - 1
+    - 2
     - unix
   semi:
     - 1
     - always
+  strict:
+    - 2
+    - global
+  arrow-body-style:
+    - 2
+    - as-needed
+  no-var:
+    - 2
+  prefer-spread:
+    - 1
+  prefer-template:
+    - 1
+  no-console:
+    - 0
+  no-unused-vars:
+    - 1
 env:
   es6: true
   node: true

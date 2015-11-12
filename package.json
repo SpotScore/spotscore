@@ -18,11 +18,11 @@
     }
   ],
   "dependencies": {
-    "forever": "0.15.x",
+    "forever": "^0.15.0",
     "good": "^6.4.0",
     "good-console": "^5.2.0",
-    "hapi": "11.0.x",
-    "pg": "4.4.x"
+    "hapi": "^11.0.0",
+    "pg": "^4.4.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
@@ -32,7 +32,7 @@
     "lab": "^7.2.0"
   },
   "engines": {
-    "node": ">=4.2.0"
+    "node": "^5.0.0"
   },
   "main": "app.js",
   "license": "BSD-2-Clause",
