@@ -114,10 +114,11 @@ server.route({
     method: 'GET',
     path: '/objects',
     handler: function (request, reply) {
-        var location = "";//request.query.location.split(',');
+        var location = request.query.location.split(',');
 		var radius = request.query.radius;
         var categories = request.query.categories.split(',');
-        var bbox = request.query.bbox.split(',');
+        //var bbox = request.query.bbox.split(',');
+		var bbox = null;
         
         var nearest = request.query.nearest;
 		var limit = request.query.limit;
@@ -179,47 +180,48 @@ server.route({
 					});
 				});
 		}
-		
-		var query2 = " AND ST_DWithin(Geography(ST_Transform(pop.way,4326)),ST_GeographyFromText('SRID=4326;POINT(" + location[0] + " " + location[1] + ")')," +radius+ ") LIMIT " + limit;
-		var query1 = " ORDER BY pop.way <-> st_setsrid(ST_Buffer(ST_MakePoint(" + location[0] + ", " + location[1] + "), " +radius+ "), 4326) LIMIT "  + limit;
-		
-		if(nearest == 'yes')  {
+		else if(bbox === undefined) {
+			var query2 = " AND ST_DWithin(Geography(ST_Transform(pop.way,4326)),ST_GeographyFromText('SRID=4326;POINT(" + location[0] + " " + location[1] + ")')," +radius+ ") LIMIT " + limit;
+			var query1 = " ORDER BY pop.way <-> st_setsrid(ST_Buffer(ST_MakePoint(" + location[0] + ", " + location[1] + "), " +radius+ "), 4326) LIMIT "  + limit;
 			
-				pg.connect(conString, function(err, client, done) {
-				if(err) {
-					return console.error('error fetching client from pool', err);
-				}
+			if(nearest == 'yes')  {
 				
-					client.query(selectQuery + query1, [], function(err, result) {
+					pg.connect(conString, function(err, client, done) {
+					if(err) {
+						return console.error('error fetching client from pool', err);
+					}
+					
+						client.query(selectQuery + query1, [], function(err, result) {
+						done();
+
+						if(err) {
+						  return console.error('error running query', err);
+						}
+						reply(result.rows);
+
+						});
+					});
+				
+			}
+			else if(nearest == 'no') {
+					
+					pg.connect(conString, function(err, client, done) {
+					if(err) {
+						return console.error('error fetching client from pool', err);
+					}
+					//reply(selectQuery + query2);
+					
+					client.query(selectQuery + query2, [], function(err, result) {
 					done();
 
 					if(err) {
 					  return console.error('error running query', err);
 					}
 					reply(result.rows);
-
 					});
 				});
-			
+			}
 		}
-		else if(nearest == 'no') {
-				
-				pg.connect(conString, function(err, client, done) {
-				if(err) {
-					return console.error('error fetching client from pool', err);
-				}
-				
-				client.query(selectQuery + query2, [], function(err, result) {
-				done();
-
-				if(err) {
-				  return console.error('error running query', err);
-				}
-				reply(result.rows);
-				});
-		    });
-		}
-		
 	
 
 	}
