@@ -114,12 +114,10 @@ server.route({
     method: 'GET',
     path: '/objects',
     handler: function (request, reply) {
-        var location = request.query.location.split(',');
-		var radius = request.query.radius;
+        var radius = request.query.radius;
         var categories = request.query.categories.split(',');
-        //var bbox = request.query.bbox.split(',');
-		var bbox = null;
         
+       
         var nearest = request.query.nearest;
 		var limit = request.query.limit;
 		var numOfNearest = request.query.numOfNearest;
@@ -153,7 +151,9 @@ server.route({
 	   
 	    selectQuery = selectQuery.substring(0, lastIndexOfAnd);
 		
-		if(bbox != null) {
+		if(request.query.location === undefined) {
+			var bbox = request.query.bbox.split(',');
+			
 			var bboxArgument = "";
 			
 			for(var box in bbox) {
@@ -180,7 +180,9 @@ server.route({
 					});
 				});
 		}
-		else if(bbox === undefined) {
+		else if(request.query.bbox === undefined) {
+			var location = request.query.location.split(',');
+			
 			var query2 = " AND ST_DWithin(Geography(ST_Transform(pop.way,4326)),ST_GeographyFromText('SRID=4326;POINT(" + location[0] + " " + location[1] + ")')," +radius+ ") LIMIT " + limit;
 			var query1 = " ORDER BY pop.way <-> st_setsrid(ST_Buffer(ST_MakePoint(" + location[0] + ", " + location[1] + "), " +radius+ "), 4326) LIMIT "  + limit;
 			
