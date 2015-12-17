@@ -21,26 +21,7 @@ server.route({
     method: "GET",
     path: "/",
     handler: function(request, reply) {
-       var selectQuery = "SELECT * FROM planet_osm_polygon pop";
-	   
-	   
-	   var client = new pg.Client(conString);
-	   client.connect();
-	   
-	   pg.connect(conString, function(err, client, done) {
-		
-			if(err) {
-				return console.error('error fetching client from pool', err);
-			}
-			client.query(selectQuery, [], function(err, result) {
-			done();
-
-			if(err) {
-			  return console.error('error running query', err);
-			}
-			reply(result.rows);
-		  });
-		});
+      
     }
 });
 
