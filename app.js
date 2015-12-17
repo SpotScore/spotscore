@@ -96,41 +96,53 @@ server.route({
     path: '/objects',
     handler: function (request, reply) {
         var radius = request.query.radius;
-        var categories = request.query.categories.split(',');
-        
-       
         var nearest = request.query.nearest;
 		var limit = request.query.limit;
 		var numOfNearest = request.query.numOfNearest;
+		var categoriesCount = 0;
 
 		var client = new pg.Client(conString);
 		client.connect();
 		
 		var selectQuery = "SELECT pop.osm_id, ST_GeometryType(pop.way), ";
 		
-		for(var i = 0; i < categories.length; i++) {
-			if(i % 2 == 0) {
-				selectQuery += "pop." + categories[i] + ", "
+		if(request.query.categories !== undefined) {
+			
+			var categories = request.query.categories.split(',');
+		
+			for(var i = 0; i < categories.length; i++) {
+				if(i % 2 == 0) {
+					selectQuery += "pop." + categories[i] + ", "
+				}
 			}
+			var lastIndexOfAnd = selectQuery.lastIndexOf(",");
+			selectQuery = selectQuery.substring(0, lastIndexOfAnd);
+			selectQuery += " "
+			
+			selectQuery += "FROM planet_osm_polygon pop WHERE ";
+			
+			for(var i = 0; i < categories.length; i++) {
+				if(i % 2 == 0) {
+					selectQuery += "pop." + categories[i] + " = ";
+				}
+				else {
+					selectQuery += " '" + categories[i] + "' AND ";
+				}
+			}
+			categoriesCount += 1;
+			//reply(categoriesCount);
 		}
-		var lastIndexOfAnd = selectQuery.lastIndexOf(",");
-		selectQuery = selectQuery.substring(0, lastIndexOfAnd);
-		selectQuery += " "
-		
-		selectQuery += "FROM planet_osm_polygon pop WHERE ";
-		
-		for(var i = 0; i < categories.length; i++) {
-			if(i % 2 == 0) {
-				selectQuery += "pop." + categories[i] + " = ";
-			}
-			else {
-				selectQuery += " '" + categories[i] + "' AND ";
-			}
+		else {
+			
+			
+			var lastIndexOfComma = selectQuery.lastIndexOf(",");
+			
+			selectQuery = selectQuery.substring(0, lastIndexOfComma);
+			
+			selectQuery += " FROM planet_osm_polygon pop ";
 		}
 		
-		var lastIndexOfAnd = selectQuery.lastIndexOf("AND");
-	   
-	    selectQuery = selectQuery.substring(0, lastIndexOfAnd);
+		//reply(selectQuery);
 		
 		if(request.query.location === undefined) {
 			var bbox = request.query.bbox.split(',');
@@ -141,7 +153,7 @@ server.route({
 				bboxArgument += bbox[box] + ", "
 			}
 					
-			var bboxQuery = " AND ST_Within(ST_Transform(pop.way,4326), ST_MakeEnvelope("+bboxArgument+" 4326)) LIMIT " + limit;
+			var bboxQuery = " WHERE ST_Within(ST_Transform(pop.way,4326), ST_MakeEnvelope("+bboxArgument+" 4326)) LIMIT " + limit;
 			
 			//reply(selectQuery + bboxQuery);
 			
@@ -164,26 +176,31 @@ server.route({
 		else if(request.query.bbox === undefined) {
 			var location = request.query.location.split(',');
 			
-			var query2 = " AND ST_DWithin(Geography(ST_Transform(pop.way,4326)),ST_GeographyFromText('SRID=4326;POINT(" + location[0] + " " + location[1] + ")')," +radius+ ") LIMIT " + limit;
-			var query1 = " ORDER BY pop.way <-> st_setsrid(ST_Buffer(ST_MakePoint(" + location[0] + ", " + location[1] + "), " +radius+ "), 4326) LIMIT "  + limit;
+			var query2 = "WHERE ST_DWithin(Geography(ST_Transform(pop.way,4326)),ST_GeographyFromText('SRID=4326;POINT(" + location[0] + " " + location[1] + ")')," +radius+ ") LIMIT " + limit;
+			var query1 = "ORDER BY pop.way <-> st_setsrid(ST_Buffer(ST_MakePoint(" + location[0] + ", " + location[1] + "), " +radius+ "), 4326) LIMIT "  + limit;
 			
 			if(nearest == 'yes')  {
 				
-					pg.connect(conString, function(err, client, done) {
+				pg.connect(conString, function(err, client, done) {
 					if(err) {
 						return console.error('error fetching client from pool', err);
 					}
+					if(categoriesCount == 1) {
+						selectQuery = selectQuery.replace('AND', '');
+					}
 					
-						client.query(selectQuery + query1, [], function(err, result) {
-						done();
+					//reply(selectQuery + query1);
+					
+					client.query(selectQuery + query1, [], function(err, result) {
+					done();
 
-						if(err) {
-						  return console.error('error running query', err);
-						}
-						reply(result.rows);
+					if(err) {
+					  return console.error('error running query', err);
+					}
+					reply(result.rows);
 
-						});
 					});
+				});
 				
 			}
 			else if(nearest == 'no') {
@@ -191,6 +208,11 @@ server.route({
 					pg.connect(conString, function(err, client, done) {
 					if(err) {
 						return console.error('error fetching client from pool', err);
+					}
+					
+					if(categoriesCount == 1) {
+						//reply(categoriesCount);
+						query2 = query2.replace('WHERE', '');
 					}
 					//reply(selectQuery + query2);
 					
