@@ -95,7 +95,11 @@ server.route({
     method: 'GET',
     path: '/objects',
     handler: function (request, reply) {
-        var radius = request.query.radius;
+        if(request.query === undefined) {
+			return console.error('error fetching client from pool');
+		}
+		
+		var radius = request.query.radius;
         var nearest = request.query.nearest;
 		var limit = request.query.limit;
 		var numOfNearest = request.query.numOfNearest;
@@ -145,10 +149,6 @@ server.route({
 		//reply(selectQuery);
 		
 		if(request.query.location === undefined) {
-			
-			if(query.bbox === undefined) {
-				return false;
-			}
 			
 			var bbox = request.query.bbox.split(',');
 			
