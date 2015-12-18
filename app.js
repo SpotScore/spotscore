@@ -145,6 +145,11 @@ server.route({
 		//reply(selectQuery);
 		
 		if(request.query.location === undefined) {
+			
+			if(query.bbox === undefined) {
+				return false;
+			}
+			
 			var bbox = request.query.bbox.split(',');
 			
 			var bboxArgument = "";
